@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Commercial Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: rgb(247, 230, 218);
+            font-family: 'Cormorant Garamond' !important;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=EB+Garamond&display=swap');
+
+        .outer-card {
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 16px;
+            height: auto;
+            width: 75%;
+            background-color: #FFF4EC !important;
+        }
+
+        .inner-card {
+            border: 1px solid #000;
+            padding: 2px;
+            text-align: center;
+            border-radius: 10px;
+            width: 23%;
+            height: 100px;
+        }
+
+        .active {
+            background-color: #9EEF80;
+        }
+
+        .active:hover {
+            background-color: #9EEF80 !important;
+        }
+
+
+        .inner-card:hover {
+            background-color: #F6E6D9;
+            color: black;
+        }
+
+        .dropdown-select:hover {
+            background-color: #F6E6D9;
+            color: black;
+        }
+
+        .selected {
+            background-color: #9EEF80;
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .radio-label {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .radii {
+            border-radius: 20%;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            background-color: green;
+            border-radius: 50%;
+        }
+
+        .options-flex {
+            display: flex;
+            border: 1px solid green;
+            margin: 8px 0;
+        }
+
+        .custom-font {
+            font-family: 'Cormorant Garamond' !important;
+        }
+
+        .options-flex .inner-card {
+            flex: 1;
+        }
+
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+
+        input[type='radio']:after {
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            position: relative;
+            background-color: #d1d3d1;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+
+        }
+
+        input[type='radio']:checked:after {
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            position: relative;
+            background-color: #9EEF80;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+        }
+
+        #mainButton:hover {
+            box-shadow: none !important;
+        }
+
+        .bold-and-large {
+            font-weight: bold;
+            font-size: 30px; /* Adjust the size as needed */
+            font-weight: 600;
+            margin-bottom: -10px;
+
+            margin-top: -10px;
+        }
+        .bold-and-large-text {
+            font-weight: bold;
+            font-size: 24px; /* Adjust the size as needed */
+        }
+        .image-with-border {
+    border: 2px solid black; /* Adjust the border size as needed */
+    border-radius: 50%;
+}
+@media (max-width: 767px) {
+    /* Mobile styles */
+    .w-full.md\:w-1\/2.p-4.relative {
+        order: -1; /* Move this section to the top on mobile */
+    }
+
+    .w-full.md\:w-1\/2.p-4.md\:p-4.font-family\:var\(--font-heading\).flex.justify-center.items-center.flex-col {
+        order: 0; /* Keep this section in its original order on mobile */
+    }
+}
+
+
+@media (max-width: 800px) {
+    /* Mobile styles */
+    #boxContainer{
+        display: flex;
+        
+    }
+}
+@media (max-width: 900px) {
+
+    .container_dots{
+      visibility: visible!important;
+    }
+    .leftdots{
+      visibility: hidden!important;
+    }
+}
+
+.container_dots{
+    width: 100%;
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  visibility: hidden;
+  
+}
+.dots{
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+
+
+    </style>
+</head>
+
+<body class="font-sans">
+    <div class="flex flex-col md:flex-row">
+        <!-- Left Div with Image Carousel -->
+
+
+        <div class="w-full md:w-1/2 p-4 relative">
+            <div class="w-half h-full ">
+                <img id="productImage" src="your-image.jpg" alt="Product Image" class="w-full h-full object-cover">
+            </div>
+
+            <div class="w-full md:w-1/2 p-4 fixed bottom-0 left-0 leftdots">
+                <div id="imageCarousel" class="flex flex-col justify-center">
+                    <div class="mb-2 cursor-pointer" onclick="changeImage(0)">
+                        <div class="w-16 h-16 rounded-full overflow-hidden">
+                            <img src="your-image.jpg" alt="Image 1" class="w-full h-full object-cover image-with-border">
+                        </div>
+                    </div>
+                    <div class="mb-2 cursor-pointer" onclick="changeImage(1)">
+                        <div class="w-16 h-16 rounded-full overflow-hidden">
+                            <img src="your-image1.jpg" alt="Image 2" class="w-full h-full object-cover image-with-border">
+                        </div>
+                    </div>
+                    <div class="mb-2 cursor-pointer" onclick="changeImage(2)">
+                        <div class="w-16 h-16 rounded-full overflow-hidden">
+                            <img src="your-image2.jpg" alt="Image 3" class="w-full h-full object-cover image-with-border">
+                        </div>
+                    </div>
+                    <div class="mb-2 cursor-pointer" onclick="changeImage(3)">
+                        <div class="w-16 h-16 rounded-full overflow-hidden">
+                            <img src="your-image3.jpg" alt="Image 4" class="w-full h-full object-cover image-with-border">
+                        </div>
+                    </div>
+                    <div class="cursor-pointer" onclick="changeImage(4)">
+                        <div class="w-16 h-16 rounded-full overflow-hidden">
+                            <img src="your-image4.jpg" alt="Image 5" class="w-full h-full object-cover image-with-border">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container_dots">
+                <div class="dots" onclick="changeImage(0)"></div>
+                <div class="dots" onclick="changeImage(1)"></div>
+                <div class="dots" onclick="changeImage(2)"></div>
+                <div class="dots" onclick="changeImage(3)"></div>
+                <div class="dots" onclick="changeImage(4)"></div>
+            </div>
+        </div>
+
+
+        <div
+            class="w-full  md:w-1/2 p-4 md:p-4 font-family: var(--font-heading) flex justify-center items-center flex-col">
+            <div class="mb-6 text-center">
+                <p class="mb-0 mt-3 text-5xl text-green-900 -ml-11 custom-font">“Drizzle” &
+                    “Sizzle”</p>
+                <p class="text-5xl text-green-900 custom-font"><u class="custom-font">Extra Virgin Olive Oil</u></p>
+
+                <div class="flex justify-center my-4">
+                    <div class="text-2xl">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="text-lg text-gray-600 ml-2">881 reviews</p>
+                </div>
+            </div>
+
+            <div class="my-4 outer-card flex flex-col bg-white">
+                <p>Quantity</p>
+                <div id="boxContainer" class="flex flex-row justify-between m-4">
+
+
+                    <div id="firstBox " onclick="myFunction(this)" class="inner-card active ">
+                        <p class="custom-font bold-and-large">1</p>
+                        <p class="custom-font bold-and-large-text">Set</p>
+                        <p style="font-size:13px;" id="firstId"></p>
+                    </div>
+
+
+                    <div id="secondBox" onclick="myFunction(this)" class="inner-card">
+                        <p class="custom-font bold-and-large">2</p>
+                        <p class="custom-font bold-and-large-text">Sets</p>
+                        <p style="font-size:13px;" id="secondId"></p>
+                    </div>
+
+
+                    <div id="thirdBox" onclick="myFunction(this)" class="inner-card">
+                        <p class="custom-font bold-and-large">3</p>
+                        <p class="custom-font bold-and-large-text">Sets</p>
+                        <p style="font-size:13px;">Free Shipping!</p>
+                        <p id="thirdId" style="font-size:13px;">+9% off</p>
+                    </div>
+
+
+                    <div id="fourthBox" onclick="myFunction(this)" class="inner-card">
+                        <p class="custom-font bold-and-large">6</p>
+                        <p class="custom-font bold-and-large-text">Sets</p>
+                        <p style="font-size:13px;">Free Shipping!</p>
+                        <p id="fourthId" style="font-size:13px;">+11% off</p>
+                    </div>
+
+
+                </div>
+
+                <div class="flex justify-center align-middle"
+                    style="width: 100%; padding:3%; border-top: 2px solid black; border-bottom: 2px solid black; border-style:dotted;">
+                    <input checked="true" id="first" class="radioGroup" name="radioGroup" type="radio">
+                    <label style="width: 100%; margin-left: 2%;" id="firstLabel" for="first">One Time Purchase <span
+                            style="float: right;">$16</span> </label>
+                </div>
+
+                <div class="flex justify-center align-middle" style="width: 100%; padding: 3%;">
+                    <input id="second" class="radioGroup" name="radioGroup" type="radio">
+                    <label style="width: 100%;  margin-left: 2%;" id="secondLabel" for="second">Subscribe & Save <span
+                            style="float: right;">$15.20</span></label>
+                </div>
+
+                <div id="dropdown" class="hidden">
+                    <form style="width: 100%;" class="flex justify-center">
+
+                        <select class="flex justify-center dropdown-select"
+                            style="width: 95%; padding:1%; border: solid 1px black; margin-bottom:2%; border-radius: 20px;"
+                            name="frequency" id="frequency">
+                            <option style="text-align: center;" value="1">Frequency: Every 1 Month</option>
+                            <option style="text-align: center;" value="2">Frequency: Every 2 Months</option>
+                            <option style="text-align: center;" value="3">Frequency: Every 3 Months</option>
+                        </select>
+
+                    </form>
+                </div>
+
+                <div style="width: 100%; padding: 3%; border-top: 2px solid black; border-style:dotted;">
+                    <button style="background-color: #D1E030; color: black; border: solid 1px; box-shadow: 2px 5px"
+                        id="mainButton" class="w-full rounded-lg text-white py-2 px-4">
+                        Add to Cart - $16
+                    </button>
+                </div>
+
+                <p id="skip" class="text-center hidden">Skip or Cancel Anytime</p>
+
+
+            </div>
+            <!-- Tab links -->
+            <div class="flex justify-center flex-col">
+
+                
+               <div style="width: 100%; border-radius: 10px;" class="tab flex justify-center align-middle">
+                <button class="tablinks" onclick="openCity(event, 'London')"><strong>DESCRIPTION</strong></button>
+                <button class="tablinks" onclick="openCity(event, 'Paris')"><strong>HARVEST</strong></button>
+                <button class="tablinks" onclick="openCity(event, 'Tokyo')"><strong>USE CASES</strong></button>
+               </div>
+
+
+                <div>
+                    <div style="display: block; border-radius: 10px;" id="London" class="tabcontent">
+                        <H4><strong>DRIZZLE: 500ML</strong></H4>
+                        <p>Extra Virgin finishing oil made from olives that are picked early, when flavor is bold and
+                            antioxidants are highest. Made for eating, never heating.</p>
+                        <h4><strong>SIZZLE: 750ML</strong></h4>
+                        <p>Extra Virgin cooking oil made from mature, mid-season olives that yield a more mellow flavor.
+                            Use it every day, in every way.</p>
+                        <p><strong>*HEADS UP! MULTIPLE SETS OF DRIZZLE & SIZZLE SHIP IN THE SAME BOX! TO ORDER
+                                INDIVIDUALLY PACKAGED GIFT SETS, CLICK HERE! 🎁</strong></p>
+                    </div>
+
+                    <div style="display: none; border-radius: 10px;" id="Paris" class="tabcontent">
+                        <H4><strong>DRIZZLEL:</strong></H4>
+                        <p>Harvested in October, before the olives have ripened fully. Picked by hand because young
+                            olives need a firm yank to loosen up.
+                        </p>
+                        <h4><strong>SIZZLE: </strong></h4>
+                        <p>Harvested in November and December, when the olives are more mature. They’re pretty laid back
+                            by this point, so it only takes a few shakes to get them off the branch.</p>
+                    </div>
+
+                    <div style="display: none; border-radius: 10px;" id="Tokyo" class="tabcontent">
+                        <H4><strong>DRIZZLEL:</strong></H4>
+                        <p>A little Drizzle goes a long way! Use it on and around things like ice cream, pesto, popcorn,
+                            salads, sandwiches or even directly on your tongue (we won’t tell). </p>
+                        <h4><strong>SIZZLE: </strong></h4>
+                        <p>If you would put it in or on top of an oven, use sizzle. Chicken Cutlets, Sheet Pan Veggies,
+                            Fried Rice, or even Chocolate Chip Cookies! You name it, Sizzle sizzles it.</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    </div>
+
+    <script>
+        function showOptions(option) {
+            // Hide all options
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`options${i}`).classList.add("hidden");
+            }
+
+            // Show options for the selected quantity
+            document.getElementById(`options${option}`).classList.remove("hidden");
+        }
+
+        const firstRadio = document.getElementById("first");
+        const secondRadio = document.getElementById("second");
+
+        const boxes = document.getElementsByClassName("inner-card");
+
+
+        if (window.innerWidth < 500) {
+            document.getElementById("boxContainer").style.flexDirection = "column";
+            document.getElementById("boxContainer").style.alignItems = "center";
+            for (let i = 0; i < boxes.length; i++) {
+                boxes[i].style.width = "80%";
+                boxes[i].style.margin = "10px";
+            }
+        } else {
+            document.getElementById("boxContainer").style.flexDirection = "row";
+            for (let i = 0; i < boxes.length; i++) {
+                boxes[i].style.width = "23%";
+                boxes[i].style.margin = "0";
+            }
+        }
+
+
+
+        function myFunction(e) {
+            var elements = document.getElementsByClassName("inner-card");
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].classList.remove("active");
+            }
+            e.classList.add("active");
+            if (e.id === "firstBox") {
+                document.getElementById("firstLabel").innerHTML = 'One Time Purchase       <span style="float: right;">$16</span>';
+                document.getElementById("secondLabel").innerHTML = 'Subscribe & Save       <span style="float: right;">$15.20</span>';
+                if (secondRadio.checked) {
+                    document.getElementById("mainButton").innerHTML = 'Subscribe - $15.20';
+                } else {
+                    document.getElementById("mainButton").innerHTML = 'Add to Cart - $16';
+                }
+            } else if (e.id === "secondBox") {
+                document.getElementById("firstLabel").innerHTML = 'One Time Purchase       <span style="float: right;">$32</span>';
+                document.getElementById("secondLabel").innerHTML = 'Subscribe & Save       <span style="float: right;">$28.80</span>';
+                if (secondRadio.checked) {
+                    document.getElementById("mainButton").innerHTML = 'Subscribe - $28.80';
+                } else {
+                    document.getElementById("mainButton").innerHTML = 'Add to Cart - $32';
+                }
+            } else if (e.id === "thirdBox") {
+                document.getElementById("firstLabel").innerHTML = 'One Time Purchase       <span style="float: right;">$91</span>';
+                document.getElementById("secondLabel").innerHTML = 'Subscribe & Save       <span style="float: right;">$81.90</span>';
+                if (secondRadio.checked) {
+                    document.getElementById("mainButton").innerHTML = "Subscribe - $81.90";
+                } else {
+                    document.getElementById("mainButton").innerHTML = 'Add to Cart - $91';
+                }
+            } else if (e.id === "fourthBox") {
+                document.getElementById("firstLabel").innerHTML = 'One Time Purchase       <span style="float: right;">$175</span>';
+                document.getElementById("secondLabel").innerHTML = 'Subscribe & Save       <span style="float: right;">$157.50</span>';
+                if (secondRadio.checked) {
+                    document.getElementById("mainButton").innerHTML = "Subscribe - $157.50";
+                } else {
+                    document.getElementById("mainButton").innerHTML = 'Add to Cart - $175';
+                }
+            }
+        }
+
+        // Add event listener to the radio buttons
+        firstRadio.addEventListener("change", function () {
+            if (firstRadio.checked) {
+                document.getElementById("firstId").innerHTML = "";
+                document.getElementById("secondId").innerHTML = "";
+                document.getElementById("thirdId").innerHTML = "+6% Off";
+                document.getElementById("fourthId").innerHTML = "+9% Off";
+                document.getElementById("dropdown").classList.add("hidden");
+                document.getElementById("skip").classList.add("hidden");
+                console.log("One Time offer is selected");
+                if (firstBox.classList.contains("active")) {
+                    document.getElementById("mainButton").innerHTML = 'Add to Cart - $16';
+                } else if (secondBox.classList.contains("active")) {
+                    document.getElementById("mainButton").innerHTML = 'Add to Cart - $32';
+                } else if (thirdBox.classList.contains("active")) {
+                    document.getElementById("mainButton").innerHTML = 'Add to Cart - $91';
+                } else if (fourthBox.classList.contains("active")) {
+                    document.getElementById("mainButton").innerHTML = 'Add to Cart - $175';
+                }
+            }
+        });
+
+        secondRadio.addEventListener("change", function () {
+            if (secondRadio.checked) {
+                document.getElementById("firstId").innerHTML = "+5% Off";
+                document.getElementById("secondId").innerHTML = "+10% Off";
+                document.getElementById("thirdId").innerHTML = "+15% Off";
+                document.getElementById("fourthId").innerHTML = "+18% Off";
+                document.getElementById("skip").classList.remove("hidden");
+                document.getElementById("dropdown").classList.remove("hidden");
+                console.log("Subscribe and Save is selected");
+                if (firstBox.classList.contains("active")) {
+                    document.getElementById("mainButton").innerHTML = "Subscribe - $15.20";
+                } else if (secondBox.classList.contains("active")) {
+                    document.getElementById("mainButton").innerHTML = "Subscribe - $28.80";
+                } else if (thirdBox.classList.contains("active")) {
+                    document.getElementById("mainButton").innerHTML = "Subscribe - $81.90";
+                } else if (fourthBox.classList.contains("active")) {
+                    document.getElementById("mainButton").innerHTML = "Subscribe - $157.50";
+                }
+            }
+        });
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
